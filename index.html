@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes"/>
+<meta name="theme-color" content="#0a1321"/>
+<title>VisionCAD • Editor DXF Touch</title>
+<link rel="manifest" href="./manifest.webmanifest"/>
+<link rel="icon" href="./icon.svg" type="image/svg+xml"/>
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+<div class="app">
+<header class="top"><button id="menuBtn" class="topbutton" title="Menu">☰</button><span class="logo">Vision<b>CAD</b></span><input id="project" class="project" value="Meu desenho" aria-label="Nome do projeto"/><button class="topbutton" id="openBtn">📂 Abrir</button><button class="topbutton" id="saveBtn">⬇ DXF</button></header>
+<div class="workspace">
+<aside class="side" id="side"><div class="sectionlabel">Ferramentas</div><div class="toolgrid" id="tools"></div><div class="sectionlabel">Ações</div><div class="toolgrid"><button id="undoBtn">↶ Desfazer</button><button id="redoBtn">↷ Refazer</button><button id="fitBtn">▣ Enquadrar</button><button id="newBtn">＋ Novo</button><button id="propBtn">⚙ Propriedades</button><button id="helpBtn">? Ajuda</button></div><div class="sectionlabel">Precisão</div><label class="switch"><input type="checkbox" id="snap" checked/> Atrair à grade</label><div class="controlrow"><label for="gridSize">Grade (mm)</label><input id="gridSize" type="number" min="0.1" step="0.5" value="5"/></div><label class="switch"><input type="checkbox" id="showGrid" checked/> Mostrar grade</label><div class="sectionlabel">Projeto</div><div class="toolgrid"><button id="jsonBtn">⬇ Projeto</button><button id="importJson">⬆ Projeto</button></div><p style="color:var(--muted);font-size:12px;line-height:1.55">Desenhos salvos automaticamente neste navegador. Faça backup em DXF ou Projeto para não perder seus arquivos.</p></aside>
+<main class="canvaswrap" id="wrap"><svg id="canvas" aria-label="Área de desenho CAD"></svg><div class="instructions" id="hint">Selecione uma ferramenta. Toque em uma peça para selecionar.</div><div class="floating"><button id="plus" aria-label="Aproximar">＋</button><button id="minus" aria-label="Afastar">−</button><button id="finish" class="hidden" style="width:auto;padding:0 10px;font-size:14px">✓ Finalizar</button><button id="cancel" class="hidden" style="width:auto;padding:0 10px;font-size:14px">✕ Cancelar</button></div><div class="notice" id="toast"></div></main>
+</div><div class="status"><span id="coords">X: 0,0 • Y: 0,0 mm</span><span id="state">0 entidades</span><span id="scale">Zoom 100%</span></div><nav class="bottom" id="mobileTools"></nav>
+</div>
+<div id="backdrop" class="backdrop"></div><div class="modal" id="dialog"><h2 id="dialogTitle"></h2><div id="dialogContent"></div><div class="actions"><button id="dialogCancel">Cancelar</button><button id="dialogOk" class="active">Aplicar</button></div></div>
+<input id="fileInput" type="file" accept=".dxf,.json" hidden/>
+<script src="./app.js" defer></script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+</body></html>
