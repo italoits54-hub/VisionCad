@@ -24,3 +24,14 @@ Editor CAD 2D independente, voltado a operação touchscreen e desenhos para CNC
 - DXF importado: LINE, CIRCLE, ARC (convertido em segmentos), LWPOLYLINE; geometria complexa e entidades 3D não suportadas.
 - Arquivos e desenho ficam no aparelho, sem sincronização em nuvem.
 - Faça conferência de medidas e contornos no CAM antes de cortar; não usar sem validação em máquina.
+
+
+## VisionCAD V1.1 — Touch + geometria + nesting + foto
+
+Novidades:
+- **Medidas exatas:** botão 📏 Medidas para criar linha por comprimento/ângulo, retângulo por dimensões, círculo por diâmetro e polígono regular.
+- **Nesting básico:** botão ▦ Nesting posiciona cópias de entidades por suas caixas envolventes em uma chapa definida em milímetros. Usa ordenação por tamanho, filas e rotação opcional de 90°. **Não é true-shape nesting** e não garante otimização nem tratamento de peças compostas com furos internos.
+- **Foto → DXF experimental:** botão 📷 Foto aceita câmera/galeria. Toque em **dois pontos** de distância conhecida e digite o comprimento real; o editor detecta contraste com o fundo e extrai contornos fechados. Recomenda-se foto ortogonal de peça plana, luz uniforme e fundo contrastante. Não corrige perspectiva e não substitui metrologia. Verifique as cotas, o fechamento e o DXF no CAM antes de usinar.
+
+## Publicação
+Extraia o ZIP e envie os **oito arquivos** à raiz do repositório (incluindo `advanced.js`). O GitHub Pages deve apontar para `main` e `/ (root)`. Se uma instalação antiga estiver em cache, feche e reabra o aplicativo ou atualize a página.
